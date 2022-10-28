@@ -224,12 +224,24 @@ module.exports = {
             ('Vietnam'),
             ('Yemen'),
             ('Zambia'),
-            ('Zimbabwe')
+            ('Zimbabwe');
             
             INSERT INTO cities
-                (id, name, rating, country_id)
+                (name, rating, country_id)
             VALUES
-                (id++, 'New York', 5, '187')
+                ('New York', 1, '187')
+            RETURNING *;
+
+            INSERT INTO cities
+                (name, rating, country_id)
+            VALUES
+                ('Tokyo', 4, '86')
+            RETURNING *;
+
+            INSERT INTO cities
+                (name, rating, country_id)
+            VALUES
+                ('Cabo San Lucas', 4, '111')
             RETURNING *;
         `).then((dbRes) => {
             console.log('DB seeded!')

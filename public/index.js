@@ -62,7 +62,15 @@ function getCountries() {
             })
         })
 }
+function getSeed() {
+    axios.post('http://localhost:4004/seed')
+        .then((res) => {
+            res.data
+            getCities()
+        })
+}
 
 getCountries()
 getCities()
+getSeed()
 form.addEventListener('submit', handleSubmit)
